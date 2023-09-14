@@ -12,8 +12,8 @@ const Courses = () => {
 
 
     return (
-        <div>
-            
+        <div className="md:w-3/4">
+            <h1 className="text-4xl">Course Regi: {courses.length}</h1>
         </div>
     );
 };
