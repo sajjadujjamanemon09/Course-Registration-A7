@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import Course from "../Course/Course";
 
 const Courses = () => {
     const [courses,setCourses] = useState([])
@@ -12,8 +13,10 @@ const Courses = () => {
 
 
     return (
-        <div className="md:w-3/4">
-            <h1 className="text-4xl">Course Regi: {courses.length}</h1>
+        <div className="md:w-3/4 grid  md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-screen-lg mx-auto">
+            {
+                courses.map(course => <Course key={course.id} course={course}></Course>)
+            }
         </div>
     );
 };
