@@ -7,7 +7,7 @@ import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
 const Course = ({course, handleAddToBookmark}) => {
     const {cover_img,title, description, price, credit} = course
     return (
-        <div className="md:w-80 bg-white rounded-lg">
+        <div className="bg-white rounded-lg">
             <div className="p-4">
             <div className="flex justify-center">
             <img className='w-full' src={cover_img} alt="" />
