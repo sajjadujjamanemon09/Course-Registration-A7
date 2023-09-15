@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import { useState } from "react";
 import Course from "../Course/Course";
 
-const Courses = () => {
+const Courses = ({handleAddToBookmark, handleRemainHour}) => {
     const [courses,setCourses] = useState([])
 
     useEffect(() => {
@@ -13,9 +14,9 @@ const Courses = () => {
 
 
     return (
-        <div className="md:w-3/4 grid  md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-screen-lg mx-auto">
+        <div className="md:w-3/4 grid  md:grid-cols-2 lg:grid-cols-3 gap-6">
             {
-                courses.map(course => <Course key={course.id} course={course}></Course>)
+                courses.map(course => <Course key={course.id} course={course} handleAddToBookmark={handleAddToBookmark} handleRemainHour={handleRemainHour}></Course>)
             }
         </div>
     );
