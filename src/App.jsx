@@ -3,7 +3,8 @@ import './App.css'
 import Bookmarks from './components/Bookmarks/Bookmarks'
 import Courses from './components/Courses/Courses'
 import Header from './components/Header/Header'
-import swal from 'sweetalert';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [bookmarks, setBookmarks] = useState([])
@@ -15,7 +16,7 @@ function App() {
     const isExist = bookmarks.find((item) => item.id == course.id)
     if(remainingHour > 0 && course.credit <= remainingHour){
       if(isExist){
-        swal("Warning !", "This Course already has selected !", "warning");
+        toast("Warning ! This Course already has selected.");
       }
       else{
         const newBookmarks = [...bookmarks, course]
@@ -30,7 +31,7 @@ function App() {
       }
     }
     else{
-      swal("Sorry !", "You don't have enough Credit remaining");
+      toast("Sorry ! You don't have enough Credit remaining");
       }
   }
   
@@ -44,6 +45,7 @@ function App() {
      <Bookmarks bookmarks={bookmarks} remainingHour={remainingHour} totalCredit={totalCredit} totalPrice={totalPrice} ></Bookmarks>
      </div>
      </div>
+     <ToastContainer></ToastContainer>
     </>
   )
 }
